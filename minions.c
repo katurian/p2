@@ -6,15 +6,15 @@
 #include <pthread.h>
 #include <string.h>
 
-void* minion_task(void* index)
+void* minion_task(void* key)
 {
-    int i = *(int*)index;
-    fprintf(stdout, "Hello!, I am minion %d!\n", i);
-    free(index); // free memory allocated for index
+    int k = *(int*)key;
+    fprintf(stdout, "Hello!, I am minion %d!\n", k);
+    free(key); // free memory allocated for index
     return NULL;
 }
 
-void* overlord_task(void* unused)
+void* overlord_task(void* nothing)
 {
     fprintf(stdout, "Hello Minions! I am the Overlord!\n");
     return NULL;
