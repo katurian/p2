@@ -1,7 +1,7 @@
 all: minions
 
-colsort: minions .c Makefile
-	gcc -Wall -Wextra -O2 -g minions.c -o minions
+minions: minions .c Makefile
+	gcc -pthread -o minions minions.c
 
 clean:
 	rm -f minions
